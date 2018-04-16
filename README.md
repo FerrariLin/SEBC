@@ -1,2 +1,0 @@
-# hadoop-bookcamp
-Hadoop BookCamp
