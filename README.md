@@ -1,1 +1,1 @@
-Hadoop BootCamp
+Cloudera Services Enablement Boot Camp 
