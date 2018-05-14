@@ -1,25 +1,42 @@
 ## Accepting Changes to the Course Material
 
-Your instructors may update the course material
-to address typos or other errors. To keep things simple, we'll send
-you the file(s) we want you to change by email. Replace the currrent file, add and commit the change, and all is good.
+Read this file once you've unpacked your course ZIP file 
 
-**Do not** add new or changed files directly to your GitHub repository.
-Make the changes locally, then push them to your repository. This
-will avoid confusion over which repo is the most current. For our
-purposes, your GitHub repo should never be more current than your
-local one.
+Please make sure:
+a) Your repo is named `SEBC,` not `SEBC-master`
+b) The top-level directory in the repo is not `SEBC-master`
 
-When one repository is used by many people, all of whom have local
-copies, it's a delicate job to maintain and distribute changes.
-We're going to avoid this complexity, but it's worth learning how
-a distributed version control system can be used to negotiate a
-variety of changes all at once. This practice starts with creating
-a clear process for keeping all interested users up to date by
-<i>syncing their forks</i>.
+Setting the repository name and top-level directories correctly
+reduces our evaluation time a great deal. Please do not add work
+to your repository until the setup is right.
 
-The process for doing this with GitHub is [described
-here](https://help.github.com/articles/syncing-a-fork/).
+Once this is done:
+* Create an empty repository called `SEBC` on your GitHub account. 
+  * Do **not** create a `README.md` file to initialize it.
+* Next, right-click the `Clone or download` button to copy your repo's URL.
+* In the SEBC directory on your laptop, invoke the following:
+  * `git init`
+  * `git config --global user.name "<your name>"`
+  * `git config --global user.email "<your email address>"`
+  * `git remote add origin <paste in the GitHub URL>`
+
+Your local git repo is now ready to <i>push</i> files to your GitHub
+repo. In the same directory on your laptop, invoke the following:
+
+* `git status`
+* `git add .`
+* `git commit -m "Push course materials for Shanghai, May 2017"`
+* `git push -u origin master`
+
+If this completes successfully, you can browse your GitHub repo to
+see the files have copied to it. If this did not work as expected,
+please consult with an instructor.
+
+As stated in `README.md`, **DO NOT** add or change files directly
+on your GitHub repo.  Make all file changes locally and push them.
+This routine will avoid synchronization problems that can occur
+when both copies have been edited in a different way at the same
+time.
 
 ---
 
