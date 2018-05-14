@@ -6,7 +6,7 @@
 ---
 <div style="page-break-after: always;"></div>
 
-# <center> Challenges - January 27, 2017 - Remote only
+# <center> Challenges - May 14-18, 2018 
 
 * Overview
     * Build a CM-managed CDH cluster and secure it
