@@ -2,7 +2,7 @@
 #!/bin/sh
 # Confirm the path values given below correspond to your installation
 
-MR=/opt/cloudera/parcels/CDH/lib/hadoop-0.20-mapreduce
+MR=/opt/cloudera/parcels/CDH/lib/hadoop-0.20-mapreduce 
 HADOOP=/opt/cloudera/parcels/CDH/bin
 
 # Mark start of the loop
@@ -26,7 +26,7 @@ do
   echo 'Maps Max Memory    : ' $MAP_MB
 	echo 'Reducer Max Memory : ' $RED_MB
 
-	echo 'Generating Test data'
+  echo 'Generating Test data'
         time ${HADOOP}/hadoop jar ${MR}/hadoop-examples.jar teragen \
                      -Dmapreduce.job.maps=$i \
                      -Dmapreduce.map.memory.mb=$k \
