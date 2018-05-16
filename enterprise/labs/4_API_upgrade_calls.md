@@ -1,4 +1,5 @@
 ## Report the latest available version of the API
+
 <code>
 [root@ip-172-31-50-198 yum.repos.d]# curl -u FerrariLin:xup6m454 'http://52.71.91.38:7180/api/version/'
 v19
@@ -6,6 +7,7 @@ v19
 </code>
 
 ## Report the CM version
+
 <code>
 [root@ip-172-31-50-198 yum.repos.d]# curl -u FerrariLin:xup6m454 'http://52.71.91.38:7180/api/v19/cm/version'
 {
@@ -18,6 +20,7 @@ v19
 </code>
 
 ## List all CM users
+
 <code>
 [root@ip-172-31-50-198 yum.repos.d]# curl -u FerrariLin:xup6m454 'http://52.71.91.38:7180/api/v19/users'
 {
@@ -35,6 +38,7 @@ v19
 </code>
 
 ## Report the database server in use by CM
+
 <code>
 [root@ip-172-31-50-198 yum.repos.d]# curl -u FerrariLin:xup6m454 'http://52.71.91.38:7180/api/v19/cm/scmDbInfo'
 {
