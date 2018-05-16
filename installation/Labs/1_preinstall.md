@@ -62,7 +62,7 @@ xvda    202:0    0  200G  0 disk
 <center> <img src=Host-filesystem-004.png > </center>
 <center> <img src=Host-filesystem-005.png > </center>
 
-## <center>Volume Type</p>
+## <center>3.Volume Type</p>
 [root@ip-172-31-55-156 home]# file -sL /dev/xvda1
 /dev/xvda1: Linux rev 1.0 ext4 filesystem data (needs journal recovery) (extents) (large files) (huge files)
 [root@ip-172-31-55-156 home]#
@@ -301,17 +301,16 @@ Non-authoritative answer:
 Authoritative answers can be found from:
 
 [root@ip-172-31-49-68 ~]#
-
 </code>
 
-## <center>7.nscd</p>
+## <center>7.Run nscd</p>
 <code>
 [root@ip-172-31-55-156 home]# service nscd status
 nscd (pid 16941) is running...
 [root@ip-172-31-55-156 home]#
 </code>
 
-## <center>8.ntp</p>
+## <center>8.Run ntpd</p>
 <code>
 [root@ip-172-31-55-156 home]# service ntpd status
 ntpd (pid  11765) is running...
@@ -323,7 +322,7 @@ ntpd (pid  11765) is running...
 <center> <img src=ntpcheck-otherhost.png> </center>
 
 
-## <center>Disable SeLinex & FireWall</p>
+## <center>9.Disable SeLinex & FireWall</p>
 <center> <img src=Disable_Selinux.png > </center>
 <center> <img src=disable_iptables.png > </center>
 
