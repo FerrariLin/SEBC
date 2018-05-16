@@ -51,7 +51,7 @@ do
 	                 /user/ferrari/terasort-${i}-${j}-${k} 1>>tera_${i}_${j}_${k}.out 2>>tera_${i}_${j}_${k}.err                         
 
         $HADOOP/hadoop fs -rm -r -skipTrash /user/ferrari/teragen-${i}-${j}-${k}                         
-        $HADOOP/hadoop fs -rm -r -skipTrash /user/ferrari/terasort-10GB-${i}-${j}-${k}                 
+        $HADOOP/hadoop fs -rm -r -skipTrash /user/ferrari/terasort-${i}-${j}-${k}                 
       done
    done
 done
