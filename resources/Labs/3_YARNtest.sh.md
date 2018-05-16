@@ -5,19 +5,19 @@
 MR=/opt/cloudera/parcels/CDH/lib/hadoop-0.20-mapreduce 
 HADOOP=/opt/cloudera/parcels/CDH/bin
 
+
 # Mark start of the loop
 echo Testing loop started on `date`
 
 # Mapper containers
-for i in 8    
-do
-   # Reducer containers
-   for j in 1 
-   do                 
-      # Container memory
-      for k in 512 1024 
-      do                  
-      echo '# of Maps : ' $i echo '# of Reducer : ' $j echo 'Maps Memory : ' $k
+for i in 8
+do    
+# Reducer containers
+or j in 1 do
+# Container memory for k in 512 1024 do
+echo 'Mapper : ' $i 
+echo 'Reducer : ' $j 
+echo 'Mapper Memory : ' $k
          # Set mapper JVM heap 
          MAP_MB=`echo "($k*0.8)/1" | bc` 
 
@@ -26,22 +26,22 @@ do
   echo 'Maps Max Memory    : ' $MAP_MB
 	echo 'Reducer Max Memory : ' $RED_MB
 
-  echo 'Generating Test data'
+  echo 'Generating Data'
         time ${HADOOP}/hadoop jar ${MR}/hadoop-examples.jar teragen \
-                     -Dmapreduce.job.maps=$i \
-                     -Dmapreduce.map.memory.mb=$k \
-                     -Dmapreduce.map.java.opts.max.heap=$MAP_MB \
+                 -Dmapreduce.job.maps=${i} \
+                 -Dmapreduce.map.memory.mb=${k} \
+                 -Dmapreduce.map.java.opts.max.heap=$MAP_MB \
                      51200000 /user/ferrarilin/teragen-${i}-${j}-${k} 1>tera_${i}_${j}_${k}.out 2>tera_${i}_${j}_${k}.err                       
- echo "\nSorting data"
+ echo "SortData"
        time ${HADOOP}/hadoop jar $MR/hadoop-examples.jar terasort \
-                     -Dmapreduce.job.maps=$i \
-                     -Dmapreduce.job.reduces=$j \
-                     -Dmapreduce.map.memory.mb=$k \
-                     -Dmapreduce.map.java.opts.max.heap=$MAP_MB \
-                     -Dmapreduce.reduce.memory.mb=$k \
-                     -Dmapreduce.reduce.java.opts.max.heap=$RED_MB \
-	             /user/ferrarilin/teragen-${i}-${j}-${k}  \
-                     /user/ferrarilin/terasort-${i}-${j}-${k} 1>>tera_${i}_${j}_${k}.out 2>>tera_${i}_${j}_${k}.err                         
+                 -Dmapreduce.job.maps=${i} \
+                 -Dmapreduce.job.reduces=${j} \
+                 -Dmapreduce.map.memory.mb=${k} \
+                 -Dmapreduce.map.java.opts.max.heap=${MAP_MB} \
+                 -Dmapreduce.reduce.memory.mb=${k} \
+                 -Dmapreduce.reduce.java.opts.max.heap=${RED_MB} \
+	         /user/ferrarilin/teragen-${i}-${j}-${k}  \
+                 /user/ferrarilin/terasort-${i}-${j}-${k} 1>>tera_${i}_${j}_${k}.out 2>>tera_${i}_${j}_${k}.err                         
 
         $HADOOP/hadoop fs -rm -r -skipTrash /user/ferrarilin/teragen-${i}-${j}-${k}                         
         $HADOOP/hadoop fs -rm -r -skipTrash /user/ferrarilin/terasort-${i}-${j}-${k}                 
