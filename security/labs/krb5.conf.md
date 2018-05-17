@@ -1,3 +1,4 @@
+<code>
 [root@ip-172-31-50-33 home]# cat /etc/krb5.conf
 [logging]
  default = FILE:/var/log/krb5libs.log
@@ -22,3 +23,4 @@
  .FerrariLin = FerrariLin
  FerrariLin = FerrariLin
 [root@ip-172-31-50-33 home]#
+</code>
