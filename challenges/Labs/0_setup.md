@@ -1,4 +1,4 @@
-## cloud provider
+## Cloud provider
 AWS
 
 ## IP address and DNS name 
