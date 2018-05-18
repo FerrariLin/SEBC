@@ -318,8 +318,5 @@ Replaced:
 Complete!
 
 ```
-## MYSQL Host
-```
 
-```
 
