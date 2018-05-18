@@ -279,18 +279,85 @@ avengers:x:502:
 [root@ip-172-31-87-98 ~]#
 ```
 
-## MySQL Server Info.
+
+## YUM Install MySQL
 ```
-[root@ip-172-31-87-98 ~]# hostname -f
-ip-172-31-87-98.ec2.internal
-[root@ip-172-31-87-98 ~]#
-```
+[root@ip-172-31-92-45 home]# sudo wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
+--2018-05-18 02:59:09--  http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
+Resolving repo.mysql.com... 23.196.56.108
+Connecting to repo.mysql.com|23.196.56.108|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 5824 (5.7K) [application/x-redhat-package-manager]
+Saving to: `mysql-community-release-el6-5.noarch.rpm'
+
+100%[===========================================================================================================================================>] 5,824       --.-K/s   in 0s
+
+2018-05-18 02:59:09 (694 MB/s) - `mysql-community-release-el6-5.noarch.rpm' saved [5824/5824]
+[root@ip-172-31-92-45 home]# sudo rpm -ivh mysql-community-release-el6-5.noarch.rpm
+Preparing...                ########################################### [100%]
+   1:mysql-community-release########################################### [100%]
+[root@ip-172-31-92-45 home]#sudo yum install -y mysql-community-server
+.
+.
+.
+
+Installed:
+  mysql-community-libs.x86_64 0:5.5.60-2.el6               mysql-community-libs-compat.x86_64 0:5.5.60-2.el6               mysql-community-server.x86_64 0:5.5.60-2.el6
+
+Dependency Installed:
+  libaio.x86_64 0:0.3.107-10.el6        mysql-community-client.x86_64 0:5.5.60-2.el6     mysql-community-common.x86_64 0:5.5.60-2.el6     perl.x86_64 4:5.10.1-144.el6
+  perl-DBI.x86_64 0:1.609-4.el6         perl-Module-Pluggable.x86_64 1:3.90-144.el6      perl-Pod-Escapes.x86_64 1:1.04-144.el6           perl-Pod-Simple.x86_64 1:3.13-144.el6
+  perl-libs.x86_64 4:5.10.1-144.el6     perl-version.x86_64 3:0.77-144.el6
+
+Dependency Updated:
+  postfix.x86_64 2:2.6.6-8.el6
+
+Replaced:
+  mysql-libs.x86_64 0:5.1.73-7.el6
+
+Complete!
 
 
-## CM Server Info.
+[root@ip-172-31-92-45 home]# cat /etc/yum.repos.d/mysql-community.repo
+[mysql-connectors-community]
+name=MySQL Connectors Community
+baseurl=http://repo.mysql.com/yum/mysql-connectors-community/el/6/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
+
+[mysql-tools-community]
+name=MySQL Tools Community
+baseurl=http://repo.mysql.com/yum/mysql-tools-community/el/6/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
+
+# Enable to use MySQL 5.5
+[mysql55-community]
+name=MySQL 5.5 Community Server
+baseurl=http://repo.mysql.com/yum/mysql-5.5-community/el/6/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
+
+# Enable to use MySQL 5.6
+[mysql56-community]
+name=MySQL 5.6 Community Server
+baseurl=http://repo.mysql.com/yum/mysql-5.6-community/el/6/$basearch/
+enabled=0
+gpgcheck=1
+gpgkey=file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
+
+# Note: MySQL 5.7 is currently in development. For use at your own risk.
+# Please read with sub pages: https://dev.mysql.com/doc/relnotes/mysql/5.7/en/
+[mysql57-community-dmr]
+name=MySQL 5.7 Community Server Development Milestone Release
+baseurl=http://repo.mysql.com/yum/mysql-5.7-community/el/6/$basearch/
+enabled=0
+gpgcheck=1
+gpgkey=file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
+[root@ip-172-31-92-45 home]#
 ```
-[root@ip-172-31-92-45 ~]# hostname -f
-ip-172-31-92-45.ec2.internal
-[root@ip-172-31-92-45 ~]#
-```
+
 
